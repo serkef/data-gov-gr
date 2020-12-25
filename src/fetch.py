@@ -78,7 +78,6 @@ class Fetcher:
         filepath: Path,
     ):
         self.output_file = filepath
-        self.output_file.parent.mkdir(parents=True, exist_ok=True)
         self.access_token = os.environ["DATA_GOV_GR_TOKEN"]
         self.object_ = object_
         self.from_date = from_date
@@ -128,6 +127,7 @@ class Fetcher:
             return
 
         logging.info(f"Writing to file {self.output_file}...")
+        self.output_file.parent.mkdir(parents=True, exist_ok=True)
         with open(self.output_file, "w") as out:
             for dictionary in data:
                 json.dump(dictionary, out, ensure_ascii=False, sort_keys=True)
