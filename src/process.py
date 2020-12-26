@@ -21,7 +21,7 @@ def main(data_dir: Path):
             continue
 
         logging.info(f"Processing {folder.name}...")
-        csv_file = folder / f"{folder.name}.csv"
+        csv_file = data_dir / f"{folder.name}.csv"
         data = []
         for json_file in sorted(folder.rglob("*.json")):
             logging.info(f"Reading {json_file}...")
