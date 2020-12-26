@@ -10,6 +10,7 @@ In [`fetch.py`](src/fetch.py) you can see all endpoints we scrape data from. For
 start date. If this is set, then we use `date_from` `date_to` params to the API query to ask data for each day
 individually. We do this to reduce the load of the API and avoid getting banned. The rest endpoints are queried without
 a date range. We store the results as uncompressed json files on the output directory defined as script argument. 
+To run incrementally, one can comment out the endpoints in `fetch.py` or change the start date.
 
 ## Environment Variables
 One needs to export the following variables
